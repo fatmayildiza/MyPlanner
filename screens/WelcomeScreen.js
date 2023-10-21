@@ -10,9 +10,8 @@ export default function WelcomeScreen() {
   return (
     <SafeAreaView className="flex-1" style={{backgroundColor: themeColors.bg}}>
         <View className="flex-1 flex justify-around my-4">
-        <Text style={{color: '#1C799B', fontSize: '34', fontWeight: 'bold', textAlign:'center'}}>
-                HAFTALIK 
-                PLANINIZI KOLAYCA HAZIRLAYIN
+        <Text  className="text-3xl font-bold text-center text-blue-400 italic" >
+                Zamanınızı Kolayca Planlayın
             </Text>
             <View className="flex-row justify-center">
                 <Image source={require("../assets/images/welcome.png")}
@@ -25,7 +24,7 @@ export default function WelcomeScreen() {
                         <Text 
                             className="text-xl font-bold text-center text-gray-700"
                         >
-                            KAYIT OL
+                            ÜCRETSİZ KAYIT OL
                         </Text>
                 </TouchableOpacity>
                 <View className="flex-row justify-center">
