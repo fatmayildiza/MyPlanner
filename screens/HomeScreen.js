@@ -58,12 +58,7 @@ export default function HomeScreen() {
   };
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity
-          onPress={handleLogout}
-          className="p-1 bg-red-400 rounded-lg"
-        >
-          <Text className="text-white text-lg font-bold"> Logout </Text>
-        </TouchableOpacity>
+     
       <ScrollView>
         <TextInput
           style={styles.input}
@@ -87,6 +82,15 @@ export default function HomeScreen() {
             )}
           </View>
         ))}
+        <View style={{ position: 'absolute', bottom: -200, right: 10 }}>
+  <TouchableOpacity
+    onPress={handleLogout}
+    className="p-1 bg-red-400 rounded-lg"
+  >
+    <Text className="text-white text-lg "> Çıkış </Text>
+  </TouchableOpacity>
+</View>
+
       
       </ScrollView>
     </SafeAreaView>

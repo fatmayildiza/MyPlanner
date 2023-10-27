@@ -99,8 +99,8 @@ const WeekPage = ({ route }) => {
                   style={styles.input}
                   placeholder={`Neler yaptım ${i + 1}.`}
                   value={text}
-                  multiline={true}  // Alt yönde genişlemeyi aktif et
-                  numberOfLines={2} // Yaklaşık iki kelime uzunluğu
+                  multiline={true}  
+                  numberOfLines={2} 
                   onChangeText={(text) => handleInputChange(item.id, i, text)}
                 />
                 <TouchableOpacity onPress={() => handleClearInput(item.id, i)}>
@@ -139,11 +139,12 @@ const styles = StyleSheet.create({
   },
   input: {
     padding: 8,
-    borderWidth: 1,
-    borderColor: '#ccc',
+    borderWidth: 3,
+    borderColor: '#4D85A4',
     borderRadius: 8,
     fontSize: 16,
-    maxWidth: 120,
+    maxWidth: 180,
+
     color:  '#1C799B',
   },
   textInputContainer: {

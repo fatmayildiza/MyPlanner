@@ -3,14 +3,16 @@ import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { themeColors } from '../theme'
 import { useNavigation } from '@react-navigation/native';
+import SignUpScreen from './SignUpScreen';
 import {auth} from '../config/firebase';
+import LoginScreen from './LoginScreen';
 
 export default function WelcomeScreen() {
     const navigation = useNavigation();
   return (
     <SafeAreaView className="flex-1" style={{backgroundColor: themeColors.bg}}>
         <View className="flex-1 flex justify-around my-4">
-        <Text  className="text-3xl font-bold text-center text-blue-400 italic" >
+        <Text  className="text-3xl font-bold text-center text-orange-400 italic" >
                 Zamanınızı Kolayca Planlayın
             </Text>
             <View className="flex-row justify-center">
@@ -19,18 +21,18 @@ export default function WelcomeScreen() {
             </View>
             <View className="space-y-4">
                 <TouchableOpacity
-                    onPress={()=> navigation.navigate('SignUp')}
-                    className="py-3 bg-blue-500 mx-7 rounded-xl">
+                    onPress={()=> navigation.navigate('SignUpScreen')}
+                    className="py-3 bg-orange-400 mx-7 rounded-xl">
                         <Text 
-                            className="text-xl font-bold text-center text-gray-700"
+                            className="text-xl font-bold text-center text-gray-600"
                         >
                             ÜCRETSİZ KAYIT OL
                         </Text>
                 </TouchableOpacity>
                 <View className="flex-row justify-center">
                     <Text className="text-blue-400 font-semibold text-xl">Zaten Üye Misin?</Text>
-                    <TouchableOpacity onPress={()=> navigation.navigate('Login')}>
-                        <Text className="font-semibold text-pink-500 text-xl"> Giriş Yap</Text>
+                    <TouchableOpacity onPress={()=> navigation.navigate('LoginScreen')}>
+                        <Text className="font-semibold text-orange-600 text-xl"> Giriş Yap</Text>
                     </TouchableOpacity>
                 </View>
             </View>
