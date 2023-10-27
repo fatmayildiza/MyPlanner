@@ -34,9 +34,7 @@ export default function HomeScreen() {
     setWeeks([...weeks, newWeek]);
     setNewWeekName("");
   };
-  const handleLogout = async () => {
-    await signOut(auth);
-  };
+  
   const deleteWeek = (weekId) => {
     Alert.alert(
       "Haftayı Sil",
@@ -83,12 +81,7 @@ export default function HomeScreen() {
           </View>
         ))}
         <View style={{ position: 'absolute', bottom: -200, right: 10 }}>
-  <TouchableOpacity
-    onPress={handleLogout}
-    className="p-1 bg-red-400 rounded-lg"
-  >
-    <Text className="text-white text-lg "> Çıkış </Text>
-  </TouchableOpacity>
+
 </View>
 
       

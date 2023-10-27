@@ -5,7 +5,7 @@ import {ArrowLeftIcon} from 'react-native-heroicons/solid'
 import { themeColors } from '../theme'
 import { useNavigation } from '@react-navigation/native'
 import { signInWithEmailAndPassword, getAuth } from 'firebase/auth'
-import HomeScreen from './HomeScreen'
+
 
 
 

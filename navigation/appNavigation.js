@@ -16,12 +16,11 @@ export default function AppNavigation() {
   if(user){
     return (
       <NavigationContainer>
-        <Stack.Navigator initialRouteName='WelcomeScreen'>
-        <Stack.Screen name="WelcomeScreen" options={{headerShown: false}} component={WelcomeScreen} />
+        <Stack.Navigator initialRouteName='HomeScreen'>
+
           <Stack.Screen name="HomeScreen" options={{headerShown: false}} component={HomeScreen} />
           <Stack.Screen name="WeekPage" options={{headerShown: false}} component={WeekPage} />
-          <Stack.Screen name="SignUpScreen" options={{headerShown: false}} component={SignUpScreen} />
-          <Stack.Screen name="LoginScreen" options={{headerShown: false}} component={LoginScreen} />
+ 
       
         </Stack.Navigator>
       </NavigationContainer>
@@ -30,13 +29,14 @@ export default function AppNavigation() {
   }else {
     return (
       <NavigationContainer>
-        <Stack.Navigator initialRouteName='Welcome'>
+        <Stack.Navigator initialRouteName='WelcomeScreen'>
          
           <Stack.Screen name="WelcomeScreen" options={{headerShown: false}} component={WelcomeScreen} />
           <Stack.Screen name="LoginScreen" options={{headerShown: false}} component={LoginScreen} />
-          <Stack.Screen name="SignUpScreen" options={{headerShown: false}} component={SignUpScreen} />
-          
 
+          <Stack.Screen name="HomeScreen" options={{headerShown: false}} component={HomeScreen} />
+          <Stack.Screen name="WeekPage" options={{headerShown: false}} component={WeekPage} />
+          
         </Stack.Navigator>
       </NavigationContainer>
     )

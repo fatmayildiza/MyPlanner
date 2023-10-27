@@ -4,10 +4,10 @@ import { themeColors } from '../theme'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {ArrowLeftIcon} from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native';
-import HomeScreen from './HomeScreen';
+
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { auth } from '../config/firebase';
-import WelcomeScreen from './WelcomeScreen';
+
 
 export default function SignUpScreen() {
     const navigation = useNavigation();
