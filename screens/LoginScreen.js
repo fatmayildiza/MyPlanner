@@ -4,7 +4,9 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import {ArrowLeftIcon} from 'react-native-heroicons/solid'
 import { themeColors } from '../theme'
 import { useNavigation } from '@react-navigation/native'
+
 import { signInWithEmailAndPassword, getAuth } from 'firebase/auth'
+
 
 
 
@@ -41,7 +43,7 @@ export default function LoginScreen() {
               case 'auth/user-not-found':
                 errorMessage = 'Kullanıcı bulunamadı.';
                 break;
-              // Diğer hata durumlarını burada da kontrol edebilirsiniz.
+              
             }
 
             alert(errorMessage);

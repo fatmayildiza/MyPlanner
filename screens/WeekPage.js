@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     maxWidth: 180,
 
-    color:  '#1C799B',
+    color:  '#F6AD9A',
   },
   textInputContainer: {
     marginBottom: 8,
