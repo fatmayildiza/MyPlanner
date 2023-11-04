@@ -1,21 +1,42 @@
-
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, TouchableOpacity, StyleSheet, TextInput, ScrollView, Alert,SafeAreaView } from 'react-native';
 import { Calendar } from 'react-native-calendars';
 import { Feather } from '@expo/vector-icons';
 import { signOut } from  'firebase/auth';
 import {auth} from '../config/firebase';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
-  const [weeks, setWeeks] = useState([
-    {
-      id: 1,
-      name: "BU HAFTA NELER YAPACAĞIM?                                  TÜM HAFTANIZI SAAT SAAT PLANLAYIN",
-    },
-    { id: 2, name: "" },
-  ]);
+
+  useEffect(() => {
+    const loadWeeks = async () => {
+      try {
+        const savedWeeks = await AsyncStorage.getItem('weeks');
+        if (savedWeeks) {
+          const parsedWeeks = JSON.parse(savedWeeks);
+          setWeeks(parsedWeeks);
+          setNewWeekName(""); 
+        }
+      } catch (error) {
+        console.error('Error loading weeks:', error);
+      }
+    };
+    loadWeeks();
+  }, []);
+  
+  
+  const saveWeeks = async (updatedWeeks) => {
+    try {
+      await AsyncStorage.setItem('weeks', JSON.stringify(updatedWeeks));
+      setWeeks(updatedWeeks);
+    } catch (error) {
+      console.error('Error saving weeks:', error);
+    }
+  };
+
+  const [weeks, setWeeks] = useState([  ]);
   const [newWeekName, setNewWeekName] = useState("");
 
   const navigateToWeek = (weekId) => {
@@ -32,8 +53,10 @@ export default function HomeScreen() {
       days: [],
     };
     setWeeks([...weeks, newWeek]);
+    saveWeeks([...weeks, newWeek]); 
     setNewWeekName("");
   };
+  
   
   const deleteWeek = (weekId) => {
     Alert.alert(
@@ -60,7 +83,7 @@ export default function HomeScreen() {
       <ScrollView>
         <TextInput
           style={styles.input}
-          placeholder="Yeni Hafta İsmi"
+          placeholder="Add new Week"
           value={newWeekName}
           onChangeText={(text) => setNewWeekName(text)}
         />
@@ -73,11 +96,13 @@ export default function HomeScreen() {
             <TouchableOpacity onPress={() => navigateToWeek(week.id)}>
               <Text style={styles.weekName}>{week.name}</Text>
             </TouchableOpacity>
-            {week.id !== 1 && week.id !== 2 && (
+          
+            
               <TouchableOpacity onPress={() => deleteWeek(week.id)}>
                 <Feather name="trash" size={24} color="red" />
               </TouchableOpacity>
-            )}
+              
+          
           </View>
         ))}
         <View style={{ position: 'absolute', bottom: -200, right: 10 }}>
@@ -135,5 +160,3 @@ const styles = StyleSheet.create({
     color: '#2F80AE',
   },
 });
-
-
