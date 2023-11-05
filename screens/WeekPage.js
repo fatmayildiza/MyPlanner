@@ -9,16 +9,16 @@ const WeekPage = ({ route }) => {
   const { weekId } = route.params;
   const navigation = useNavigation();
 
-  const dayNames = ['Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi', 'Pazar'];
+  const dayNames = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'];
 
   const [days, setDays] = useState([
-    { id: 1, dayName: 'Pazartesi', texts: Array(7).fill('') },
-    { id: 2, dayName: 'Salı', texts: Array(7).fill('') },
-    { id: 3, dayName: 'Çarşamba', texts: Array(7).fill('') },
-    { id: 4, dayName: 'Perşembe', texts: Array(7).fill('') },
-    { id: 5, dayName: 'Cuma', texts: Array(7).fill('') },
-    { id: 6, dayName: 'Cumartesi', texts: Array(7).fill('') },
-    { id: 7, dayName: 'Pazar', texts: Array(7).fill('') },
+    { id: 1, dayName: 'MONDAY', texts: Array(7).fill('') },
+    { id: 2, dayName: 'TUESDAY', texts: Array(7).fill('') },
+    { id: 3, dayName: 'WEDNESDAY', texts: Array(7).fill('') },
+    { id: 4, dayName: 'THURSDAY', texts: Array(7).fill('') },
+    { id: 5, dayName: 'FRIDAY', texts: Array(7).fill('') },
+    { id: 6, dayName: 'SATURDAY', texts: Array(7).fill('') },
+    { id: 7, dayName: 'SUNDAY', texts: Array(7).fill('') },
   ]);
   
 
@@ -54,9 +54,9 @@ const WeekPage = ({ route }) => {
     if (weekId) {
       try {
         await AsyncStorage.setItem(`week_${weekId}`, JSON.stringify(days));
-        alert('Başarıyla kaydedildi');
+        alert('Saved Succesfully');
       } catch (error) {
-        console.error('Kaydedilemedi:(', error);
+        console.error('could not saved:(', error);
       }
     } else {
       alert('Week ID is undefined');
@@ -69,7 +69,7 @@ const WeekPage = ({ route }) => {
     
       <TextInput
         style={styles.input}
-        placeholder={`Neler yapacağım? ${index + 1}.`}
+        placeholder={`Task ${index + 1}.`}
         value={item}
         multiline={true}
         numberOfLines={4} 
@@ -97,7 +97,7 @@ const WeekPage = ({ route }) => {
               <View key={i} style={styles.textInputContainer}>
                 <TextInput
                   style={styles.input}
-                  placeholder={`Neler yaptım ${i + 1}.`}
+                  placeholder={`task ${i + 1}.`}
                   value={text}
                   multiline={true}  
                   numberOfLines={2} 
@@ -115,7 +115,7 @@ const WeekPage = ({ route }) => {
         <Text style={styles.buttonText}>Save</Text>
       </TouchableOpacity>
       <View>
-        <Text style={{color:'#F6AD9A'}}> Haftanın diğer günlerini görmek için ekranı sağa kaydırın =></Text>
+        <Text style={{color:'#F6AD9A'}}> Swipe right to see other days of the week=></Text>
       </View>
     </SafeAreaView>
   );
@@ -143,7 +143,8 @@ const styles = StyleSheet.create({
     borderColor: '#4D85A4',
     borderRadius: 8,
     fontSize: 16,
-    maxWidth: 180,
+
+    width:130,
 
     color:  '#F6AD9A',
   },

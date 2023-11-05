@@ -7,7 +7,7 @@ const DayCard = ({ dayName, dayIndex, onInputChange, inputValue }) => {
       <Text style={styles.dayName}>{dayName}</Text>
       <TextInput
         style={styles.input}
-        placeholder="Neler yapacağım?"
+        placeholder="Task"
         value={inputValue}
         onChangeText={(text) => onInputChange(dayIndex, text)}
       />

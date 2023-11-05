@@ -31,17 +31,17 @@ export default function LoginScreen() {
         }catch(err){
             console.log('got error:', err.message);
 
-            let errorMessage = 'Bilinmeyen bir hata oluştu.';
+            let errorMessage = 'Error';
 
             switch (err.code) {
               case 'auth/invalid-email':
-                errorMessage = 'Geçersiz e-posta adresi.';
+                errorMessage = 'Invalid email';
                 break;
               case 'auth/wrong-password':
-                errorMessage = 'Yanlış şifre.';
+                errorMessage = 'Wrong password';
                 break;
               case 'auth/user-not-found':
-                errorMessage = 'Kullanıcı bulunamadı.';
+                errorMessage = 'user not found';
                 break;
               
             }
@@ -110,10 +110,10 @@ export default function LoginScreen() {
           </View>
           <View className="flex-row justify-center mt-7  ">
               <Text className="text-gray-500 font-semibold text-xl">
-              Henüz üye olmadınız mı?
+              Not a member yet?
               </Text>
               <TouchableOpacity onPress={()=> navigation.navigate('SignUpScreen')}>
-                  <Text className="text-xl font-semibold text-yellow-500"> Ücretsiz üye olun</Text>
+                  <Text className="text-xl font-semibold text-yellow-500"> Sign up for free</Text>
               </TouchableOpacity>
           </View>
           

@@ -20,7 +20,7 @@ export default function SignUpScreen() {
         if (email && password) {
             try {
                 await createUserWithEmailAndPassword(auth, email, password);
-                alert('Yeni üyelik başarıyla oluşturuldu!');
+                alert('New membership created successfully!');
                 navigation.navigate('HomeScreen'); 
             } catch (err) {
                 console.log('got error:', err.message);

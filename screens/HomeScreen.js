@@ -60,8 +60,8 @@ export default function HomeScreen() {
   
   const deleteWeek = (weekId) => {
     Alert.alert(
-      "Haftayı Sil",
-      "Silmek istediğinize emin misiniz?",
+      "Delete the week",
+      "Are you sure?",
       [
         {
           text: "Vazgeç",
@@ -72,11 +72,14 @@ export default function HomeScreen() {
       { cancelable: false }
     );
   };
-
+  
   const confirmDelete = (weekId) => {
     const updatedWeeks = weeks.filter((week) => week.id !== weekId);
     setWeeks(updatedWeeks);
+    saveWeeks(updatedWeeks); // Silme işlemi gerçekleştikten sonra AsyncStorage'e kaydet
   };
+  
+  
   return (
     <SafeAreaView style={styles.container}>
      
@@ -88,7 +91,7 @@ export default function HomeScreen() {
           onChangeText={(text) => setNewWeekName(text)}
         />
         <TouchableOpacity style={styles.addButton} onPress={addNewWeek}>
-          <Text style={styles.addButtonText}>Hafta Ekle</Text>
+          <Text style={styles.addButtonText}>ADD NEW WEEK</Text>
         </TouchableOpacity>
         <Calendar />
         {weeks.map((week) => (
