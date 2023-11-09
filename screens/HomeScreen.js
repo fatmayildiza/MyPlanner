@@ -7,6 +7,9 @@ import { signOut } from  'firebase/auth';
 import {auth} from '../config/firebase';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
+
+
 export default function HomeScreen() {
   const navigation = useNavigation();
 
@@ -48,7 +51,7 @@ export default function HomeScreen() {
 
   const addNewWeek = () => {
     const newWeek = {
-      id: weeks[weeks.length - 1].id + 1,
+      id: weeks.length > 0 ? weeks[weeks.length - 1].id + 1 : 1,
       name: newWeekName,
       days: [],
     };
@@ -56,6 +59,7 @@ export default function HomeScreen() {
     saveWeeks([...weeks, newWeek]); 
     setNewWeekName("");
   };
+  
   
   
   const deleteWeek = (weekId) => {
