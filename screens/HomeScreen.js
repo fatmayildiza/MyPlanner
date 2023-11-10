@@ -43,9 +43,7 @@ export default function HomeScreen() {
   const [newWeekName, setNewWeekName] = useState("");
 
   const navigateToWeek = (weekId) => {
-    if (weekId === 2 || weekId === 1) {
-      return;
-    }
+
     navigation.navigate("WeekPage", { weekId });
   };
 
